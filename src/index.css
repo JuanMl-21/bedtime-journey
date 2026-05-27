@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+@font-face {
+  font-family: 'Loubag';
+  src: url('/fonts/loubag-semi-bold.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loubag';
+  src: url('/fonts/loubag-semi-bold.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Atmosphere-First Nurturing Design: Crear un ambiente digital que transmita calidez, seguridad y tranquilidad, reflejando el viaje hacia el sueño infantil
+   - Soft Whimsy Minimalism: Combinar elementos lúdicos (barquito de papel, estrellas, nubes, luna) con espacios amplios y respirables que no abrumen a padres cansados
+   - Maternal Empathy: Cada elemento visual debe comunicar comprensión, apoyo y profesionalismo cálido, no clínico ni frío
+   - Esta estética se alinea perfectamente con servicios de coaching de sueño infantil, donde la confianza y la ternura son fundamentales
+
+2. TYPOGRAPHY:
+   - Loubag (títulos): Tipografía oficial de marca. Serif con personalidad lúdica y elegante, evoca los libros de cuentos, calidez y magia de la hora de dormir
+   - Lato (cuerpo): Sans-serif humanista con excelente legibilidad en párrafos largos, formas redondeadas que transmiten accesibilidad y calidez. Perfecta para contenido educativo extenso
+   - La combinación Serif display + Sans body crea jerarquía clara y ritmo visual agradable para landing pages de servicios
+
+3. COLOR SYSTEM:
+   - Brand primary: Morado #7259A3 (H: 270°) — color principal del logo, transmite calma, sabiduría y cuidado nocturno. Asociado con sueño reparador y magia suave
+   - --brand mapea a --primary (CTAs, enlaces), --accent (highlights sutiles), --ring (focus states)
+   - Paleta extendida: Lila #A794CA (tints suaves), Azul #4A5F8A (confianza profesional), Celeste #85A5D4 (serenidad), Rosa #D0A3CB (ternura), Crema #EEE1CF (calidez de fondo)
+   - Success: Verde suave (logros en rutinas de sueño), Warning: Ámbar cálido (alertas educativas), Destructive: Coral suave (no rojo agresivo, mantiene tono empático)
+   - Contraste WCAG AA garantizado para accesibilidad, crucial para padres leyendo de noche en dispositivos móviles
+
+4. USAGE GUIDE:
+   - Layout: Full-width sections con max-width containers (1280px), hero expansivo con ilustraciones del logo, secciones alternas con fondos crema/blanco
+   - Efectos recomendados: Subtle gradients (morado a lila), soft shadows (no harsh), rounded corners (1rem) para cards de servicios, gentle hover transitions
+   - Imágenes: Fotografías tiernas de bebés/niños durmiendo con overlays morados translúcidos, ilustraciones whimsical como elementos decorativos
+   - Componentes clave: Cards con borde sutil para servicios, testimonials con avatars circulares, pricing tables con highlight en plan recomendado, blog grid con imágenes grandes
+   - Evitar: Colores neón, animaciones bruscas, tipografía condensada, imágenes de stock genéricas — mantener autenticidad y suavidad
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  
+  /* Radius */
+  --radius: 1rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.98 0.01 270);
+  --foreground: oklch(0.22 0.02 270);
+  --card: oklch(0.99 0.005 60);
+  --card-foreground: oklch(0.24 0.02 270);
+  --popover: oklch(0.99 0.005 60);
+  --popover-foreground: oklch(0.22 0.02 270);
+  --primary: oklch(0.52 0.12 270);
+  --primary-foreground: oklch(0.98 0.01 270);
+  --secondary: oklch(0.68 0.08 270);
+  --secondary-foreground: oklch(0.98 0.01 270);
+  --muted: oklch(0.94 0.015 60);
+  --muted-foreground: oklch(0.48 0.02 270);
+  --accent: oklch(0.72 0.09 320);
+  --accent-foreground: oklch(0.98 0.01 270);
+  --destructive: oklch(0.58 0.15 15);
+  --destructive-foreground: oklch(0.98 0.005 15);
+  --border: oklch(0.88 0.02 270);
+  --input: oklch(0.88 0.02 270);
+  --ring: oklch(0.52 0.12 270);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.52 0.12 270);
+  --chart-2: oklch(0.62 0.11 220);
+  --chart-3: oklch(0.72 0.09 320);
+  --chart-4: oklch(0.68 0.08 200);
+  --chart-5: oklch(0.76 0.06 60);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.97 0.01 270);
+  --sidebar-foreground: oklch(0.28 0.02 270);
+  --sidebar-primary: oklch(0.52 0.12 270);
+  --sidebar-primary-foreground: oklch(0.98 0.01 270);
+  --sidebar-accent: oklch(0.72 0.09 320);
+  --sidebar-accent-foreground: oklch(0.98 0.01 270);
+  --sidebar-border: oklch(0.88 0.02 270);
+  --sidebar-ring: oklch(0.52 0.12 270);
+}
+
+.dark {
+  --background: oklch(0.15 0.02 270);
+  --foreground: oklch(0.92 0.01 270);
+  --card: oklch(0.18 0.025 270);
+  --card-foreground: oklch(0.92 0.01 270);
+  --popover: oklch(0.16 0.025 270);
+  --popover-foreground: oklch(0.92 0.01 270);
+  --primary: oklch(0.68 0.14 270);
+  --primary-foreground: oklch(0.15 0.02 270);
+  --secondary: oklch(0.58 0.10 270);
+  --secondary-foreground: oklch(0.92 0.01 270);
+  --muted: oklch(0.25 0.03 270);
+  --muted-foreground: oklch(0.68 0.02 270);
+  --accent: oklch(0.76 0.11 320);
+  --accent-foreground: oklch(0.15 0.02 270);
+  --destructive: oklch(0.62 0.18 15);
+  --destructive-foreground: oklch(0.95 0.01 15);
+  --border: oklch(0.28 0.04 270);
+  --input: oklch(0.28 0.04 270);
+  --ring: oklch(0.68 0.14 270);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.68 0.14 270);
+  --chart-2: oklch(0.65 0.13 220);
+  --chart-3: oklch(0.76 0.11 320);
+  --chart-4: oklch(0.70 0.10 200);
+  --chart-5: oklch(0.78 0.08 60);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.14 0.025 270);
+  --sidebar-foreground: oklch(0.88 0.01 270);
+  --sidebar-primary: oklch(0.68 0.14 270);
+  --sidebar-primary-foreground: oklch(0.15 0.02 270);
+  --sidebar-accent: oklch(0.76 0.11 320);
+  --sidebar-accent-foreground: oklch(0.15 0.02 270);
+  --sidebar-border: oklch(0.28 0.04 270);
+  --sidebar-ring: oklch(0.68 0.14 270);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
