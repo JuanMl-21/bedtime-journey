@@ -95,6 +95,7 @@ export default function BlogPost() {
 
   const idx = BLOG_ARTICLES.findIndex((a) => a.id === id);
   const article = BLOG_ARTICLES[idx];
+  const hasNext = BLOG_ARTICLES.length > 1;
   const nextArticle = BLOG_ARTICLES[(idx + 1) % BLOG_ARTICLES.length];
 
   useEffect(() => {
@@ -228,6 +229,7 @@ export default function BlogPost() {
             </button>
 
             {/* Next article */}
+            {hasNext && (
             <button
               onClick={() => navigate(`/blog/${nextArticle.id}`)}
               style={{
@@ -251,6 +253,7 @@ export default function BlogPost() {
               </div>
               <ArrowRight size={20} color="#fff" style={{ flexShrink: 0 }} />
             </button>
+            )}
           </div>
         </div>
       </div>
@@ -264,9 +267,9 @@ export default function BlogPost() {
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 24 }}>
             {[
-              { icon: <Instagram size={18} />, href: "#" },
+              { icon: <Instagram size={18} />, href: "https://instagram.com/bedtimejourneycr" },
               { icon: <Facebook size={18} />, href: "#" },
-              { icon: <Mail size={18} />, href: "mailto:hola@bedtimejourney.com" },
+              { icon: <Mail size={18} />, href: "mailto:mariale.bedtime@gmail.com" },
             ].map(({ icon, href }, i) => (
               <a key={i} href={href} style={{
                 display: "flex", alignItems: "center", justifyContent: "center",

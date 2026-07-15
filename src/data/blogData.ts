@@ -17,6 +17,52 @@ export interface BlogArticle {
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    id: "sindrome-muerte-subita-bebe-como-protejo-a-mi-bebe",
+    title: "Síndrome de muerte súbita del bebé: ¿qué es y cómo protejo a mi bebé?",
+    excerpt: "Si te preparas para la llegada de tu bebé o tienes un bebé en su primer año de vida, estas medidas de seguridad para el sueño son importantes para ti.",
+    category: "Seguridad del Sueño",
+    date: "Julio 2025",
+    readTime: "6 min lectura",
+    image: "https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=1200&q=80",
+    content: [
+      {
+        type: "intro",
+        text: "Si estás preparándote para la llegada de tu bebé o tienes un bebé en su primer año de vida, esta información es importante para ti."
+      },
+      {
+        type: "paragraph",
+        text: "El síndrome de muerte súbita del bebé o del lactante es la muerte repentina e inesperada, sin causa aparente aún después de una investigación completa, en bebés de 1 mes a 1 año, y está asociada al momento de dormir. Hay otras causas relacionadas con el sueño que pueden ser asfixia, atrapamiento o estrangulación. Pero tranquila: en los años noventa, después de una campaña con la recomendación de que los niños durmieran boca arriba, hubo un gran avance en la reducción de casos de este síndrome. Esto quiere decir que hay pequeñas acciones y decisiones que pueden ayudarnos a cuidar mejor a nuestros bebés en sus tiempos de sueño."
+      },
+      {
+        type: "paragraph",
+        text: "Las medidas que te voy a compartir no aplican únicamente para los momentos de dormir durante las noches, sino también para las siestas que el niño realiza durante el día. Toma nota y haz un chequeo de qué cosas ya realizas y cuáles medidas de seguridad podrías implementar para crear un ambiente más apropiado:"
+      },
+      {
+        type: "list",
+        items: [
+          "Siempre coloca a tu bebé boca arriba para dormir: se ha demostrado que es la posición más segura. Si por su propia cuenta rueda boca abajo, no hay necesidad de reposicionarlo; lo importante es la posición en la que lo acuestas.",
+          "La superficie de la cuna debe ser firme y plana, cubierta únicamente con una sábana ajustable que puedas asegurar que no se soltará durante la noche. No es seguro que duerma en superficies blandas como sofás, colchones de agua, almohadas, fulares, coches o sillas de carro.",
+          "En la medida de tus posibilidades, amamanta a tu bebé: se ha demostrado que colabora con la reducción del riesgo de muerte súbita. Si lo haces en tu cama, cuando termine de comer procura regresarlo al lugar donde duerme solo.",
+          "Comparte la habitación con tu bebé al menos los primeros 6 meses, cada uno en su espacio. No se recomienda que duerman en la misma cama: el bebé debe tener su propio lugar para dormir solo.",
+          "Deja fuera de su cuna cualquier objeto acolchonado, juguetes, protectores de cuna, cobijas o cobertores sueltos. No debe haber nada en ese espacio, ya que cualquiera de estos objetos puede ser un peligro.",
+          "Vela por una temperatura regular para tu bebé: debe estar a temperatura ambiente, ni muy frío ni muy caliente. El exceso de capas de ropa o cobijas puede llevar al bebé a un sobrecalentamiento. Mantén su cara y cabeza descubiertas y cuida que no haya sudoración; su pecho debería sentirse tibio al tacto y sus manitas frías.",
+          "Mantén un acompañamiento médico constante, respetando el orden de las vacunas: no solo protegen a tu bebé, sino que hay investigaciones que demuestran que ayudan a reducir el riesgo del síndrome."
+        ]
+      },
+      {
+        type: "paragraph",
+        text: "Estas son las medidas básicas de seguridad que debes tomar en cuenta al preparar el espacio de sueño de tu bebé. Cada vez son menos los casos de niños que sufren de SMSL gracias a que más mamás y papás están informados y toman decisiones en pro del bienestar de sus hijos."
+      },
+      {
+        type: "paragraph",
+        text: "Si la información te parece valiosa, compártela con una mamá que consideres que necesite conocer sobre el tema."
+      }
+    ]
+  }
+];
+
+const _ARCHIVED_ARTICLES: BlogArticle[] = [
+  {
     id: "por-que-tu-bebe-se-despierta-cada-hora",
     title: "Por qué tu bebé se despierta cada hora (y cómo ayudarlo a dormir mejor)",
     excerpt: "Entender la ciencia detrás de los despertares nocturnos es el primer paso para acompañar a tu bebé hacia un descanso más reparador para toda la familia.",

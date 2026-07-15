@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Star, ChevronDown, Instagram, Facebook, Mail, Phone, Check, ArrowRight, Heart, BookOpen } from "lucide-react";
 import { BLOG_ARTICLES } from "../../data/blogData";
 
@@ -35,8 +35,6 @@ function Navbar() {
     { label: "Inicio", href: "#hero" },
     { label: "Conóceme", href: "#about" },
     { label: "Servicios", href: "#servicios" },
-    { label: "¿Cómo funciona?", href: "#proceso" },
-    { label: "Testimonios", href: "#testimonios" },
     { label: "Blog", href: "#blog" },
     { label: "Contacto", href: "#contacto" },
   ];
@@ -150,7 +148,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="hero-title text-center md:text-left"
             style={{ fontFamily: "'Loubag', serif", fontWeight: 400, color: "#fff", lineHeight: 1.3, letterSpacing: "0.06em", margin: 0 }}>
-            <span className="hero-line">Te acompañamos en el</span>
+            <span className="hero-line">Te acompaño en tu</span>
             <em className="hero-line" style={{ fontStyle: "italic", color: "#A794CA" }}>viaje hacia el descanso</em>
             <span className="hero-line">de toda tu familia</span>
           </motion.h1>
@@ -158,7 +156,7 @@ function Hero() {
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}
           style={{ fontFamily: "Lato, sans-serif", fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(255,255,255,0.85)", maxWidth: 560, margin: "0 auto 44px", lineHeight: 1.75 }}>
-          Con ciencia, apego y corazón de docente, ayudo a bebés de 0 a 5 años a desarrollar hábitos de sueño saludables — para que toda la familia descanse y florezca.
+          Con respeto, apego seguro y aprendizaje para la etapa de vida en la que te encuentras — desde la espera de tu bebé hasta los 5 años — ayudo a desarrollar hábitos de sueño saludables para que toda la familia descanse y encuentre el bienestar integral.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
@@ -179,7 +177,7 @@ function Hero() {
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
           style={{ marginTop: 80, display: "flex", justifyContent: "center", gap: 48, flexWrap: "wrap" }}>
-          {[["❤️", "Crianza con apego"], ["3 semanas", "Acompañamiento real"], ["0–5 años", "Edades atendidas"], ["100%", "Personalizado"]].map(([n, l]) => (
+          {[["❤️", "Empatía y escucha"], ["3 semanas", "Acompañamiento real"], ["0–5 años", "Edades atendidas"], ["100%", "Personalizado"]].map(([n, l]) => (
             <div key={n} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "'Loubag', serif", fontSize: 32, fontWeight: 600, color: "#A794CA" }}>{n}</div>
               <div style={{ fontFamily: "Lato, sans-serif", fontSize: 13, color: "rgba(255,255,255,0.7)", marginTop: 4 }}>{l}</div>
@@ -219,28 +217,31 @@ function About() {
             Hola, soy Mariale 👋
           </span>
           <h2 style={{ fontFamily: "'Loubag', serif", fontSize: "clamp(32px, 4vw, 46px)", fontWeight: 400, color: "#2E2E3A", lineHeight: 1.2, marginBottom: 24 }}>
-            Un corazón de docente<br />
-            <em style={{ fontStyle: "italic", color: "#7259A3" }}>detrás del viaje</em>
+            La docente detrás del viaje<br />
+            <em style={{ fontStyle: "italic", color: "#7259A3" }}>hacia el buen dormir</em>
           </h2>
           <div style={{ width: 56, height: 3, background: "#7259A3", borderRadius: 2, marginBottom: 32 }} />
 
           <p style={{ fontFamily: "Lato, sans-serif", fontSize: 16, lineHeight: 1.85, color: "#555", marginBottom: 20 }}>
-            Soy una <strong style={{ color: "#4A5F8A" }}>educadora especial</strong> que quiso ampliar los contextos donde el conocimiento sobre la infancia podía aportar más allá de un centro educativo. Además soy esposa y en este momento estoy descubriendo una nueva faceta como <strong style={{ color: "#7259A3" }}>Coach de Sueño Infantil.</strong>
+            Soy una <strong style={{ color: "#4A5F8A" }}>educadora especial</strong> que quiso ampliar los contextos donde el conocimiento sobre la infancia podía aportar más allá de un centro educativo. Además, soy esposa y en este momento estoy descubriendo una nueva faceta como <strong style={{ color: "#7259A3" }}>Coach de Sueño Infantil.</strong>
+          </p>
+          <p style={{ fontFamily: "Lato, sans-serif", fontSize: 16, lineHeight: 1.85, color: "#555", marginBottom: 20 }}>
+            Espero llegar a ser esa mano amiga, guía y compañía en los diferentes hitos de tu familia: la llegada de tu primer hijo, o de un nuevo hermanito, o cuando tu bebé está pasando a ser un niño y desbloquea nuevos retos en sus 2 o 3 años. Quiero estar en los momentos de cansancio de muchas mamás y papás que quieren lo mejor para sus hijos y buscan un cambio hacia ser una familia más feliz y equilibrada.
           </p>
           <p style={{ fontFamily: "Lato, sans-serif", fontSize: 16, lineHeight: 1.85, color: "#555", marginBottom: 32 }}>
-            Espero llegar a ser esa mano amiga, guía y compañía en los momentos de cansancio de muchas mamás y papás que quieren lo mejor para sus hijos y buscan un cambio hacia ser una familia más feliz.
+            No solo quiero darte los pasos para que tu bebé aprenda a dormir solo: mi corazón de docente anhela que en este viaje haya mucho aprendizaje, no solo en términos de sueño, sino también de ciencia, apego seguro y disciplina positiva.
           </p>
 
           <blockquote style={{ borderLeft: "4px solid #D0A3CB", paddingLeft: 24, marginBottom: 36, fontFamily: "Lato, sans-serif", fontSize: 17, fontStyle: "italic", color: "#4A5F8A", lineHeight: 1.8 }}>
-            "Acompañar a tu bebé a desarrollar una nueva habilidad es todo un viaje, lleno de retos, ilusión, esperanza de un mejor dormir para todos… pero que prometo puede llegar a un lugar de calma."
+            "Bedtime Journey describe el viaje que vas a emprender para dormir mejor: acompañarás a tu bebé a desarrollar una nueva habilidad, un proceso lleno de retos, ilusión y esperanza. Aquí no entrenamos sueño, sino que vivenciamos el desarrollo natural de tu bebé."
             <br /><strong style={{ fontStyle: "normal", fontSize: 14, color: "#7259A3", display: "block", marginTop: 10 }}>— Mariale Muñoz</strong>
           </blockquote>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {[
-              { icon: <BookOpen size={18} />, label: "Educación Especial" },
-              { icon: <Moon size={18} />, label: "Coach de Sueño" },
-              { icon: <Heart size={18} />, label: "Crianza con Apego" },
+              { icon: <BookOpen size={18} />, label: "Aprendizaje" },
+              { icon: <Heart size={18} />, label: "Bienestar familiar" },
+              { icon: <Moon size={18} />, label: "Respeto" },
             ].map(({ icon, label }) => (
               <span key={label} style={{ display: "flex", alignItems: "center", gap: 8, background: "#F7F4F0", borderRadius: 50, padding: "10px 20px", fontFamily: "Lato, sans-serif", fontSize: 13, fontWeight: 700, color: "#7259A3" }}>
                 {icon} {label}
@@ -256,8 +257,8 @@ function About() {
 /* ══════════════════════════════ POR QUÉ ══════════════════════════════ */
 function WhyUs() {
   const reasons = [
-    { emoji: "🎓", title: "Educadora, no solo Coach", desc: "Mi formación en educación especial transforma el proceso: no solo resuelvo el problema de hoy, sino que capacito a los padres para el mañana.", color: "#7259A3" },
-    { emoji: "💌", title: "Acompañamiento Real", desc: "Tres semanas al lado de tu familia, todos los días. No un PDF que nunca leerás — una guía que camina contigo en cada paso del proceso.", color: "#4A5F8A" },
+    { emoji: "🎓", title: "Educadora, no solo Coach", desc: "Mi formación en educación especial transforma el enfoque: me permite visualizar de manera integral la etapa de desarrollo de tu bebé, y ser creativa y flexible en el proceso.", color: "#7259A3" },
+    { emoji: "💌", title: "Acompañamiento Real", desc: "Tres semanas al lado de tu familia, viviendo el proceso, realizando los ajustes que sean necesarios, siendo tu compañera de viaje con escucha, guía y empatía.", color: "#4A5F8A" },
     { emoji: "🌿", title: "Sin comprometer el apego", desc: "Un enfoque que integra ciencia del sueño con crianza respetuosa. No hay que elegir entre dormir bien y criar con amor.", color: "#85A5D4" },
     { emoji: "📋", title: "Plan 100% personalizado", desc: "No existen fórmulas universales. El plan es tuyo, de tu bebé, de tu familia. Adaptado a su realidad, temperamento y valores.", color: "#A794CA" },
     { emoji: "🔬", title: "Basado en evidencia", desc: "Cada recomendación está respaldada por la ciencia del sueño y el desarrollo infantil. Aprenderás el porqué detrás de cada paso.", color: "#D0A3CB" },
@@ -297,74 +298,75 @@ function WhyUs() {
 }
 
 /* ══════════════════════════════ SERVICIOS ══════════════════════════════ */
+interface Service {
+  tag?: string;
+  icon: string;
+  name: string;
+  ages: string;
+  color: string;
+  gradient: string;
+  featured: boolean;
+  includes: string[];
+  description: string;
+  cost: string;
+}
+
 function Servicios() {
-  const services = [
+  const [selected, setSelected] = useState<Service | null>(null);
+
+  const services: Service[] = [
     {
       tag: "Más popular",
       icon: "🌙",
       name: "Asesoría Bedtime Journey",
       ages: "5 meses – 5 años",
-      price: "$280",
-      extra: "+ $50 semana adicional",
       color: "#7259A3",
       gradient: "linear-gradient(135deg,#7259A3,#A794CA)",
       featured: true,
       includes: [
-        "Llamada inicial para establecer metas",
-        "Plan personalizado a tu familia",
+        "Llamada inicial para conocernos y establecer metas",
+        "Plan personalizado según la etapa de tu bebé",
         "3 semanas de acompañamiento diario",
-        "Todos los días de la semana",
-        "Semana adicional disponible ($50)",
+        "Ajustes sobre la marcha y celebración de avances",
+        "Semanas adicionales disponibles si las necesitas",
       ],
+      description:
+        "Excelente elección de plan. Esta modalidad incluye una llamada inicial que nos permite conocernos, conocer tu historia y necesidades, y plantear objetivos acordes a tu realidad. Tendrás un plan personalizado pensado en la etapa del desarrollo de tu hijo y respetuoso de tu estilo de crianza. Además, durante las 3 semanas estaré acompañándote para resolver dudas, realizar ajustes y celebrar avances. Si el tiempo se extiende a más de 3 semanas, podrás acceder a semanas adicionales.",
+      cost: "Costo: $280 · Semana adicional: $50",
     },
     {
       icon: "⭐",
-      name: "Sesión Consulta",
+      name: "Consulta Bedtime Journey",
       ages: "5 meses – 5 años",
-      price: "$60",
-      extra: "Sesión única",
       color: "#4A5F8A",
       gradient: "linear-gradient(135deg,#4A5F8A,#85A5D4)",
       featured: false,
       includes: [
-        "Llamada de indagación (20 min)",
-        "Sesión de 1 hora completa",
-        "Plan de sueño personalizado",
-        "Orientación práctica inmediata",
+        "Llamada corta para conocerte y conocer tu historia",
+        "Definimos juntas tus metas",
+        "Plan de sueño adaptado a tu realidad",
+        "Sesión de 1 hora para explicarte el plan y resolver dudas",
       ],
+      description:
+        "Puede ser la opción que más se ajuste a ti. Primero tendremos una llamada corta que me permite conocerte a vos y la historia de tu familia; en este primer espacio establecemos tus metas. Una vez que tuvimos este espacio, creo un plan que se adapte a tu realidad en el proceso de sueño de tu hijo. Por último, tenemos una sesión de 1 hora donde te explico el plan, escucho tus dudas y realizamos los ajustes necesarios para que de inmediato pongas en marcha tu plan.",
+      cost: "Costo: $60",
     },
     {
       icon: "🍼",
       name: "The Journey Begin",
       ages: "Recién nacidos 0 – 5 meses",
-      price: "$80",
-      extra: "Para los primeros meses",
       color: "#85A5D4",
       gradient: "linear-gradient(135deg,#85A5D4,#A794CA)",
       featured: false,
       includes: [
-        "Llamada de indagación (20 min)",
-        "Sesión de 1 hora",
-        "Aprende sobre el sueño de tu RN",
-        "Buenos hábitos desde el inicio",
-        "Guía para la siguiente etapa",
+        "Acompañamiento para mamás primerizas o que quieren hacerlo distinto",
+        "Aprendizaje y preparación para esta etapa",
+        "Guía para mediar en los hábitos de sueño desde el inicio",
+        "Preparar el camino hacia el momento de aprender a dormir solo",
       ],
-    },
-    {
-      icon: "📖",
-      name: "Guías Digitales",
-      ages: "Todos los padres",
-      price: "$30",
-      extra: "Descarga inmediata",
-      color: "#D0A3CB",
-      gradient: "linear-gradient(135deg,#D0A3CB,#A794CA)",
-      featured: false,
-      includes: [
-        "Material educativo de calidad",
-        "Datos curiosos sobre el sueño",
-        "Estrategias prácticas",
-        "Acceso inmediato",
-      ],
+      description:
+        "Este plan está pensado para ti que eres mamá primeriza, o que no es tu primer hijo pero quieres hacer las cosas diferentes y preparar el camino hacia buenos hábitos de sueño. Este espacio es de aprendizaje y preparación en todo lo que pueda hacer esta etapa tan demandante más llevadera, y poder mediar en todos aquellos hábitos que ayudarán a tu bebé a estar encaminado hacia su momento de aprender a dormir solo.",
+      cost: "Costo: $80",
     },
   ];
 
@@ -406,15 +408,9 @@ function Servicios() {
               <div style={{ fontFamily: "Lato, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: s.featured ? "rgba(255,255,255,0.75)" : s.color, marginBottom: 8 }}>
                 {s.ages}
               </div>
-              <h3 style={{ fontFamily: "'Loubag', serif", fontSize: 22, color: s.featured ? "#fff" : "#2E2E3A", marginBottom: 16, lineHeight: 1.3 }}>
+              <h3 style={{ fontFamily: "'Loubag', serif", fontSize: 22, color: s.featured ? "#fff" : "#2E2E3A", marginBottom: 24, lineHeight: 1.3 }}>
                 {s.name}
               </h3>
-              <div style={{ fontFamily: "'Loubag', serif", fontSize: 48, color: s.featured ? "#fff" : s.color, fontWeight: 600, lineHeight: 1, marginBottom: 4 }}>
-                {s.price}
-              </div>
-              <div style={{ fontFamily: "Lato, sans-serif", fontSize: 12, color: s.featured ? "rgba(255,255,255,0.7)" : "#888", marginBottom: 28 }}>
-                {s.extra}
-              </div>
 
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
                 {s.includes.map((item) => (
@@ -425,12 +421,12 @@ function Servicios() {
                 ))}
               </ul>
 
-              <a href="#contacto"
-                style={{ display: "block", textAlign: "center", background: s.featured ? "rgba(255,255,255,0.2)" : s.gradient, border: s.featured ? "2px solid rgba(255,255,255,0.5)" : "none", color: "#fff", padding: "14px 28px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 14, fontWeight: 700, textDecoration: "none", transition: "opacity 0.2s" }}
+              <button onClick={() => setSelected(s)}
+                style={{ display: "block", width: "100%", textAlign: "center", cursor: "pointer", background: s.featured ? "rgba(255,255,255,0.2)" : s.gradient, border: s.featured ? "2px solid rgba(255,255,255,0.5)" : "none", color: "#fff", padding: "14px 28px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 14, fontWeight: 700, transition: "opacity 0.2s" }}
                 onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
                 onMouseLeave={e => (e.currentTarget.style.opacity = "1")}>
                 Quiero este plan →
-              </a>
+              </button>
             </motion.div>
           ))}
         </motion.div>
@@ -438,19 +434,76 @@ function Servicios() {
         {/* Charlas */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}
           style={{ marginTop: 32, background: "linear-gradient(135deg,#2E2145,#4A5F8A)", borderRadius: 24, padding: "36px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
-          <div>
+          <div style={{ maxWidth: 620 }}>
             <div style={{ fontFamily: "Lato, sans-serif", fontSize: 12, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#A794CA", marginBottom: 8 }}>Charlas Educativas</div>
-            <h3 style={{ fontFamily: "'Loubag', serif", fontSize: 26, color: "#fff" }}>Talleres para grupos de padres</h3>
-            <p style={{ fontFamily: "Lato, sans-serif", fontSize: 15, color: "rgba(255,255,255,0.75)", marginTop: 8, lineHeight: 1.6 }}>Charlas personalizadas para comunidades, empresas y grupos de crianza sobre sueño infantil y hábitos saludables.</p>
+            <h3 style={{ fontFamily: "'Loubag', serif", fontSize: 26, color: "#fff" }}>Talleres para Padres</h3>
+            <p style={{ fontFamily: "Lato, sans-serif", fontSize: 15, color: "rgba(255,255,255,0.75)", marginTop: 8, lineHeight: 1.6 }}>Charlas personalizadas para comunidades educativas y grupos de crianza sobre sueño infantil y hábitos saludables.</p>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontFamily: "'Loubag', serif", fontSize: 52, color: "#A794CA", fontWeight: 600 }}>$200</div>
-            <a href="#contacto" style={{ display: "inline-block", marginTop: 12, background: "rgba(255,255,255,0.15)", border: "2px solid rgba(255,255,255,0.4)", color: "#fff", padding: "12px 28px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
+            <a href="#contacto" style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", border: "2px solid rgba(255,255,255,0.4)", color: "#fff", padding: "14px 32px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
               Solicitar información
             </a>
           </div>
         </motion.div>
       </div>
+
+      {/* Modal de detalle de servicio */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+            style={{ position: "fixed", inset: 0, zIndex: 2000, background: "rgba(46,33,69,0.6)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }}
+              transition={{ duration: 0.28 }}
+              onClick={e => e.stopPropagation()}
+              style={{ background: "#fff", borderRadius: 24, maxWidth: 560, width: "100%", maxHeight: "88vh", overflowY: "auto", boxShadow: "0 32px 80px rgba(46,33,69,0.4)", position: "relative" }}
+            >
+              <div style={{ background: selected.gradient, padding: "36px 36px 28px", position: "relative" }}>
+                <button onClick={() => setSelected(null)} aria-label="Cerrar"
+                  style={{ position: "absolute", top: 18, right: 18, width: 38, height: 38, borderRadius: "50%", background: "rgba(255,255,255,0.2)", border: "1px solid rgba(255,255,255,0.4)", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <X size={20} />
+                </button>
+                <div style={{ fontSize: 40, marginBottom: 12 }}>{selected.icon}</div>
+                <div style={{ fontFamily: "Lato, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "rgba(255,255,255,0.8)", marginBottom: 6 }}>
+                  {selected.ages}
+                </div>
+                <h3 style={{ fontFamily: "'Loubag', serif", fontSize: 26, color: "#fff", lineHeight: 1.25, margin: 0 }}>
+                  {selected.name}
+                </h3>
+              </div>
+
+              <div style={{ padding: "32px 36px 36px" }}>
+                <p style={{ fontFamily: "Lato, sans-serif", fontSize: 16, lineHeight: 1.85, color: "#555", marginBottom: 28 }}>
+                  {selected.description}
+                </p>
+
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px" }}>
+                  {selected.includes.map((item) => (
+                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontFamily: "Lato, sans-serif", fontSize: 14, color: "#555", padding: "6px 0", lineHeight: 1.5 }}>
+                      <Check size={16} style={{ flexShrink: 0, marginTop: 2, color: selected.color }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ background: "#F7F4F0", borderRadius: 16, padding: "18px 24px", marginBottom: 28, borderLeft: `4px solid ${selected.color}` }}>
+                  <div style={{ fontFamily: "'Loubag', serif", fontSize: 20, color: selected.color, fontWeight: 600 }}>
+                    {selected.cost}
+                  </div>
+                </div>
+
+                <a href="#contacto" onClick={() => setSelected(null)}
+                  style={{ display: "block", textAlign: "center", background: selected.gradient, color: "#fff", padding: "16px 32px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 15, fontWeight: 700, textDecoration: "none", boxShadow: "0 8px 28px rgba(114,89,163,0.4)" }}>
+                  Reservar esta modalidad →
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
@@ -568,7 +621,7 @@ function Blog() {
         </motion.div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
-          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28 }}>
+          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 380px))", justifyContent: "center", gap: 28 }}>
           {BLOG_ARTICLES.map((article) => (
             <motion.div key={article.id} variants={fade}
               onClick={() => navigate(`/blog/${article.id}`)}
@@ -681,8 +734,8 @@ function Contacto() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
-              { icon: <Instagram size={20} color="#7259A3" />, label: "Instagram", val: "@bedtimejourney.by.mari", href: "https://instagram.com/bedtimejourney.by.mari" },
-              { icon: <Mail size={20} color="#7259A3" />, label: "Email", val: "mariale@bedtimejourney.com", href: "mailto:mariale@bedtimejourney.com" },
+              { icon: <Instagram size={20} color="#7259A3" />, label: "Instagram", val: "@bedtimejourneycr", href: "https://instagram.com/bedtimejourneycr" },
+              { icon: <Mail size={20} color="#7259A3" />, label: "Email", val: "mariale.bedtime@gmail.com", href: "mailto:mariale.bedtime@gmail.com" },
               { icon: <Phone size={20} color="#7259A3" />, label: "WhatsApp", val: "Escríbeme directamente", href: "#contacto" },
             ].map(({ icon, label, val, href }) => (
               <a key={label} href={href} style={{ display: "flex", alignItems: "center", gap: 16, textDecoration: "none" }}>
@@ -773,7 +826,7 @@ function Footer() {
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
               {[
-                { icon: <Instagram size={20} />, href: "https://instagram.com/bedtimejourney.by.mari" },
+                { icon: <Instagram size={20} />, href: "https://instagram.com/bedtimejourneycr" },
                 { icon: <Facebook size={20} />, href: "https://facebook.com" },
               ].map(({ icon, href }, i) => (
                 <a key={i} href={href} style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", textDecoration: "none", transition: "background 0.2s" }}
@@ -787,7 +840,7 @@ function Footer() {
 
           <div>
             <h4 style={{ fontFamily: "'Loubag', serif", fontSize: 18, color: "#fff", marginBottom: 20 }}>Servicios</h4>
-            {["Asesoría Bedtime Journey", "Sesión Consulta", "The Journey Begin", "Guías Digitales", "Charlas Educativas"].map(s => (
+            {["Asesoría Bedtime Journey", "Consulta Bedtime Journey", "The Journey Begin", "Talleres para Padres"].map(s => (
               <a key={s} href="#servicios" style={{ display: "block", fontFamily: "Lato, sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "5px 0", transition: "color 0.2s" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#A794CA")}
                 onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
@@ -798,8 +851,8 @@ function Footer() {
 
           <div>
             <h4 style={{ fontFamily: "'Loubag', serif", fontSize: 18, color: "#fff", marginBottom: 20 }}>Navegación</h4>
-            {["Inicio", "Conóceme", "¿Cómo funciona?", "Testimonios", "Blog", "Contacto"].map((l, i) => (
-              <a key={l} href={["#hero", "#about", "#proceso", "#testimonios", "#blog", "#contacto"][i]}
+            {["Inicio", "Conóceme", "Blog", "Contacto"].map((l, i) => (
+              <a key={l} href={["#hero", "#about", "#blog", "#contacto"][i]}
                 style={{ display: "block", fontFamily: "Lato, sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "5px 0", transition: "color 0.2s" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#A794CA")}
                 onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
@@ -872,8 +925,6 @@ const Index = () => {
       <About />
       <WhyUs />
       <Servicios />
-      <Proceso />
-      <Testimonios />
       <Blog />
       <CtaSection />
       <Contacto />
