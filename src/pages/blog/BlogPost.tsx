@@ -132,15 +132,17 @@ export default function BlogPost() {
           </button>
           <button
             onClick={() => navigate("/")}
+            aria-label="Volver a la página principal de Bedtime Journey"
             style={{
               display: "flex", alignItems: "center", gap: 8,
               background: "none", border: "1.5px solid #7259A3",
-              color: "#7259A3", borderRadius: 50, padding: "8px 20px",
+              color: "#7259A3", borderRadius: 50, padding: "10px 22px",
+              minHeight: 44,
               fontFamily: "Lato, sans-serif", fontSize: 14, fontWeight: 700,
               cursor: "pointer",
             }}
           >
-            <ArrowLeft size={14} /> Volver al inicio
+            <ArrowLeft size={16} /> Volver al inicio
           </button>
         </div>
       </header>
@@ -150,6 +152,8 @@ export default function BlogPost() {
         <img
           src={article.image}
           alt={article.title}
+          loading="eager"
+          decoding="async"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div style={{

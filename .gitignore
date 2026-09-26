@@ -94,6 +94,7 @@ cypress/downloads/
 *.swp
 .DS_Store
 Thumbs.db
+~$*.docx
 .node_repl_history
 
 # --- Uploaded Files ---
