@@ -1,7 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowLeft, ArrowRight, Moon, Clock, Calendar, Instagram, Facebook, Mail } from "lucide-react";
-import { BLOG_ARTICLES, BlogContent } from "../../data/blogData";
+import { BlogContent } from "../../data/blogData";
+import { useBlogArticles } from "../../hooks/useBlogArticles";
+
 
 const LOGO_CREMA = "/images/logo-crema.svg";
 
@@ -92,15 +94,26 @@ function ContentBlock({ block }: { block: BlogContent }) {
 export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { articles, loading } = useBlogArticles();
 
-  const idx = BLOG_ARTICLES.findIndex((a) => a.id === id);
-  const article = BLOG_ARTICLES[idx];
-  const hasNext = BLOG_ARTICLES.length > 1;
-  const nextArticle = BLOG_ARTICLES[(idx + 1) % BLOG_ARTICLES.length];
+  const idx = articles.findIndex((a) => a.id === id);
+  const article = articles[idx];
+  const hasNext = articles.length > 1;
+  const nextArticle = articles[(idx + 1) % articles.length];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [id]);
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#F7F4F0" }}>
+        <div style={{ fontFamily: "Lato, sans-serif", fontSize: 16, color: "#7259A3", fontWeight: 700 }}>
+          Cargando artículo… 🌙
+        </div>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
