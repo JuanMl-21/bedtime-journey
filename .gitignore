@@ -103,3 +103,6 @@ uploaded_files/
 # --- Generated standalone preview ---
 bedtime-journey-preview.html
 
+
+.vercel
+.env*

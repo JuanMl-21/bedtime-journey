@@ -142,23 +142,7 @@ export const Servicios = React.memo(function Servicios({ onSelectService }: Serv
                   {s.name}
                 </h3>
 
-                {/* VISIBLE PRICE BADGE */}
-                <div style={{
-                  display: "inline-block",
-                  background: s.featured ? "rgba(255,255,255,0.2)" : "#F7F4F0",
-                  color: s.featured ? "#fff" : s.color,
-                  padding: "6px 14px",
-                  borderRadius: 12,
-                  fontFamily: "'Loubag', serif",
-                  fontSize: 18,
-                  fontWeight: 700,
-                  marginBottom: 20,
-                  border: s.featured ? "1px solid rgba(255,255,255,0.3)" : "1px solid #e8e4f0"
-                }}>
-                  {s.price}
-                </div>
-
-                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px" }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 28px" }}>
                   {s.includes.map((item) => (
                     <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontFamily: "Lato, sans-serif", fontSize: 14, color: s.featured ? "rgba(255,255,255,0.9)" : "#555", padding: "6px 0", lineHeight: 1.5 }}>
                       <Check size={16} style={{ flexShrink: 0, marginTop: 2, color: s.featured ? "rgba(255,255,255,0.9)" : "#7259A3" }} />
@@ -250,7 +234,7 @@ export const Servicios = React.memo(function Servicios({ onSelectService }: Serv
 
                 <button onClick={() => handleSelectAndScroll(selected.name)}
                   style={{ display: "block", width: "100%", textAlign: "center", background: selected.gradient, color: "#fff", padding: "16px 32px", borderRadius: 50, fontFamily: "Lato, sans-serif", fontSize: 15, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: "0 8px 28px rgba(114,89,163,0.4)" }}>
-                  Reservar esta modalidad ({selected.price}) →
+                  Reservar esta modalidad →
                 </button>
               </div>
             </motion.div>
