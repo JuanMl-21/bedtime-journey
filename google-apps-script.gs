@@ -8,6 +8,24 @@ const SHEET_ID   = '1h7oRAUMmHvybit9AhN1rePjyqxIwSUDxo7oamzLXDbw';
 const SHEET_NAME = 'Base de datos de Clientes de Bedtime Journey';
 const MARIALE_PHONE = '50686489507'; // +506 8648 9507
 const MARIALE_EMAIL = 'mariale.bedtime@gmail.com';
+const HEADERS = ['Fecha', 'Nombre', 'Email', 'WhatsApp', 'Servicio Interesado', 'Edad del bebé', 'Mensaje'];
+
+// ── Crea la fila de encabezados, o la repara si quedó desactualizada
+// (ej. una hoja vieja con menos columnas que el esquema actual) ──
+function ensureHeaders(sheet) {
+  const current = sheet.getLastRow() > 0
+    ? sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0]
+    : [];
+  const upToDate = HEADERS.every((h, i) => current[i] === h);
+  if (upToDate) return;
+
+  sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+  sheet.getRange(1, 1, 1, HEADERS.length)
+       .setFontWeight('bold')
+       .setBackground('#7259A3')
+       .setFontColor('#ffffff');
+  sheet.setFrozenRows(1);
+}
 
 // ── Guardar en Google Sheets ─────────────────────────────────
 function doPost(e) {
@@ -15,20 +33,10 @@ function doPost(e) {
     const ss    = SpreadsheetApp.openById(SHEET_ID);
     const sheet = ss.getSheetByName(SHEET_NAME) || ss.getActiveSheet();
 
-    // Crear encabezados si la hoja está vacía
-    if (sheet.getLastRow() === 0) {
-      const headers = ['Fecha', 'Nombre', 'Email', 'WhatsApp', 'Servicio Interesado', 'Edad del bebé', 'Mensaje'];
-      sheet.appendRow(headers);
-      sheet.getRange(1, 1, 1, headers.length)
-           .setFontWeight('bold')
-           .setBackground('#7259A3')
-           .setFontColor('#ffffff');
-      sheet.setFrozenRows(1);
-    }
+    ensureHeaders(sheet);
 
     const data = JSON.parse(e.postData.contents);
-
-    sheet.appendRow([
+    const row = [
       data.date     || new Date().toLocaleString('es-CR'),
       data.name     || '',
       data.email    || '',
@@ -36,7 +44,14 @@ function doPost(e) {
       data.service  || 'Consulta general',
       data.baby     || '',
       data.message  || '',
-    ]);
+    ];
+
+    const targetRow = sheet.getLastRow() + 1;
+    // Forzar texto plano en WhatsApp ANTES de escribir: si el número viene
+    // con "+" (ej. "+506 8841-3070"), Sheets lo intenta leer como fórmula
+    // y muestra #ERROR!. En texto plano se guarda tal cual.
+    sheet.getRange(targetRow, 4).setNumberFormat('@STRING@');
+    sheet.getRange(targetRow, 1, 1, row.length).setValues([row]);
 
     // 1. Notificar por Email (Instantáneo, 100% Gratis y Confiable sin depender de bots)
     sendEmailNotification(data);
